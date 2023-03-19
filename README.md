@@ -408,12 +408,6 @@ Book book1("Harry Potter", "JK Rowling", 500);
 Book book3;
 ```
 
-
-
-**Progress**
-------------
-This is still a work in progress.
-
 **Links to Other Helpful Projects**
 ------------
 Here are some other projects that are similar to this one.

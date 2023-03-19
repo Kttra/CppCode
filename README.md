@@ -117,6 +117,149 @@ floor(4.8); \\4
 fmax(3,10); \\returns the maximum, 10 in this case
 fmin(3,10) \\returns the minimum, 3 in this case
 ```
+**User Input**
+------------
+In C++, you can use the cin object to read user input from the console. The cin object is an instance of the istream class and it is defined in the iostream header file.
+
+```c++
+cout << "Enter your age: ";
+cin >> age;
+cout << "You are " << age << " years old";
+string name;
+getline(cin, name); //Receives entire line as input
+cin.ignore(); //used to ignore or clear one or more characters from the input buffer
+```
+
+**Arrays**
+------------
+In C++, an array is a collection of elements of the same data type, stored in contiguous memory locations. Arrays are used to store multiple values in a single variable, making it easier to organize data in the program.
+
+```c++
+int luckyNums[20] = {4, 8, 15, 16, 23, 42};
+luckyNums[10] = 100;
+luckyNums[2]; //15
+```
+
+**Functions**
+------------
+In C++, a function is a block of code that performs a specific task. Functions are used to break down large programs into smaller, more manageable pieces. There are different return types for a function. Below are a few examples.
+
+•  void: This return type is used when the function does not return any value.
+
+•  int: This return type is used when the function returns an integer value.
+
+•  double: This return type is used when the function returns a floating-point value.
+
+•  char: This return type is used when the function returns a single character.
+
+•  bool: This return type is used when the function returns a boolean value.
+
+```c++
+void sum(int a, int b){
+	return a + b;
+}
+
+```
+
+
+**If Statements**
+------------
+An if statement is used to execute a block of code if a certain condition is true. The condition is a boolean expression that is evaluated to either true or false. If the condition is true, the code inside the if statement is executed. If the condition is false, the code inside the if statement is skipped.
+
+```c++
+if (condition) {
+// code to execute if condition is true
+}
+```
+
+An if statement can also be followed by an else statement, which is executed if the condition is false. The syntax for an if-else statement is as follows:
+
+```c++
+bool isMale = true;
+if(isMale){
+	cout << "You are male";
+}
+else{
+	cout << "You are not male";
+}
+```
+
+**Switch Statements**
+----
+A switch statement is used to execute a block of code based on the value of a variable.
+
+```c++
+switch (variable) {
+case value1:
+  //code to execute if variable equals value1
+  break;
+case value2:
+  //code to execute if variable equals value2
+  break;
+  ...
+default:
+  //code to execute if variable does not equal any of the values
+  break;
+}
+```
+
+The break statement is used to exit the switch statement after a case is executed. If the break statement is not used, the code will continue to execute until a break statement is encountered or the end of the switch statement is reached.
+
+**Loops**
+----
+For loops and while loops are used to execute a block of code repeatedly.
+
+A for loop is used when the number of iterations is known in advance. The syntax for a for loop is as follows:
+
+```c++
+int num = 5;
+for (int i = 0; i < num; i++) {
+  //code to execute
+}
+```
+
+The initialization is used to initialize the loop variable, the condition is used to test the loop variable, and the update is used to update the loop variable after each iteration. The code inside the for loop is executed as long as the condition is true.
+
+A while loop is used when the number of iterations is not known in advance. The syntax for a while loop is as follows:
+
+```c++
+while (condition) {
+  //code to execute
+  //change condition to false eventually or break out of loop
+}
+```
+The condition is a boolean expression that is evaluated to either true or false. The code inside the while loop is executed as long as the condition is true.
+
+**2d Array & Nested Loops**
+-----
+
+In C++, a 2D array is an array of arrays. It is used to store a table of values, where each row and column has a unique index.
+
+The syntax for a 2D array is as follows:
+type arrayName[rowSize][colSize];
+
+The rowSize and colSize are the number of rows and columns in the array, respectively. The type is the data type of the elements in the array.
+
+Nested loops are used to iterate over a 2D array. The outer loop iterates over the rows, and the inner loop iterates over the columns. The syntax for a nested loop is as follows:
+
+```c++
+for (int i = 0; i < rowSize; i++) {
+  for (int j = 0; j < colSize; j++) {
+    //code to execute
+  }
+}
+
+int numberGrid[3][2] = {{1, 2},
+                        {3, 4}.
+		        {5,6}};
+for(int i=0;i<3;i++){
+	for(int j = 0; j<2;j++){
+		cout << numberGrid[i][j];
+  }
+}
+
+```
+
 **Progress**
 ------------
 This is still a work in progress.

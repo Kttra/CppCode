@@ -155,7 +155,7 @@ In C++, a function is a block of code that performs a specific task. Functions a
 •  bool: This return type is used when the function returns a boolean value.
 
 ```c++
-void sum(int a, int b){
+int sum(int a, int b){
 	return a + b;
 }
 
@@ -168,7 +168,7 @@ An if statement is used to execute a block of code if a certain condition is tru
 
 ```c++
 if (condition) {
-// code to execute if condition is true
+//code to execute if condition is true
 }
 ```
 
@@ -230,6 +230,77 @@ while (condition) {
 ```
 The condition is a boolean expression that is evaluated to either true or false. The code inside the while loop is executed as long as the condition is true.
 
+**Array/Vectors**
+-----
+Arrays and vectors are both used to store collections of elements, but they have some differences.
+
+Arrays are a fixed-size collection of elements of the same data type. The size of the array is determined at compile time and cannot be changed at runtime. Arrays are accessed using an index, and the elements are stored in contiguous memory locations.
+
+```c++
+int values[4];
+values[0] = 2;
+int src[] = {2,4,6,8};
+int dest[10];
+//Example of copying an array to another, copy(begin(sourceArray), end(sourceArray), begin(destinationArray));
+copy(src, src+10,dest); //dest will turn into {2,4,6,8, _, _, _, …}; where the last 6 values are uninitialized
+int s_size = sizeof(src)/sizeof(*src);
+int d_size = sizeof(dest)/sizeof(*dest);
+int *values = new int[4]; //manually have to disallocate from memory later
+delete[values]; //Memory not freed immediately 
+```
+
+Vectors, on the other hand, are a dynamic collection of elements of the same data type. The size of the vector can be changed at runtime, and elements can be added or removed from the vector. Vectors are accessed using an iterator, and the elements are not necessarily stored in contiguous memory locations.
+
+```c++
+vector<int> values;
+values.push_back(2);
+values.push_back(4);
+values.push_back(6);
+values.push_back(8);
+values; //{2,4, 6, 8};
+int v_size = values.size();
+values.pop_back(); //remove last index
+values.empty(); //returns false
+values.resize(3);
+values.clear(); //clears values
+values.back(); //returns last element
+values.at(i); //alternative way to access value
+
+values = {2,4,6};
+for(vector<int>::iterator it = values.begin(); it != values.end(); it++){
+	cout << *it << “ ”;
+}
+//2, 4, 6
+for(vector<int>::iterator it = values.begin(); it != values.end(); it++){
+	if(*it == 4){
+		values.insert(it+1, 7);
+		break;
+	}
+}
+//2, 4, 7, 6
+values = {2,4,6};
+for(vector<int>::iterator it = values.begin(); it != values.end(); it++){
+	if(*it == 4){
+		values.erase(it+1);
+		break;
+	}
+}
+//2, 4
+values = {2,4,6};
+values.pop_back();
+//2, 4
+
+vector<int> values;
+values.push_back(2);
+values.push_back(4);
+values.push_back(6);
+values.resize(10);
+values[5] = 10;
+//2, 4, 6, 0, 10, 0, 0, 0…
+```
+
+Arrays are generally faster than vectors because they have a fixed size and are stored in contiguous memory locations. Vectors are more flexible than arrays because they can be resized at runtime.
+
 **2d Array & Nested Loops**
 -----
 
@@ -255,10 +326,89 @@ int numberGrid[3][2] = {{1, 2},
 for(int i=0;i<3;i++){
 	for(int j = 0; j<2;j++){
 		cout << numberGrid[i][j];
-  }
+  	}
 }
 
 ```
+
+**Pointers**
+----
+A pointer is a variable that stores the memory address of another variable. The address-of operator (&) is used to get the memory address of a variable. The dereference operator (*) is used to access the value of the variable that the pointer points to. The syntax for declaring a pointer is as follows:
+
+type *pointerName;
+
+The type is the data type of the variable that the pointer points to. The * symbol is used to indicate that the variable is a pointer.
+
+```c++
+int age = 19;
+int *pAge = &age; \\storing memory address of age
+same for double, strings
+pAge; \\getting address
+*pAge; \\reference, returns 19
+&age; \\will give memory address
+```
+
+**Classes & Objects**
+----
+A class is a user-defined data type that encapsulates data and functions into a single entity. The syntax for declaring a class is as follows:
+
+```c++
+class className {
+	private:
+		//private data members
+	public:
+		//public data members and member functions
+};
+```
+
+The private keyword is used to indicate that the data members are only accessible within the class. The public keyword is used to indicate that the data members and member functions are accessible from outside the class.
+
+An object is an instance of a class. The syntax for declaring an object is as follows:
+
+```c++
+className objectName;
+```
+The objectName is the name of the object, and className is the name of the class. Objects are used to access the data members and member functions of a class. The dot operator (.) is used to access the data members and member functions of an object. Below is an example of a class.
+
+```c++
+class Book{
+	public:
+		string title;
+		string author;
+		int pages;
+};
+Book book1;
+book1.author = "JK Rowling"
+book1.title = "Harry potter";
+book.pages = 500;
+```
+
+**Constructor Functions**
+----
+A constructor is a special member function that is called when an object is created.
+
+```c++
+class Book{
+	public:
+		string title;
+		string author;
+		int pages;
+	Book(){
+		title = “no title”;
+		author = “no author”;
+		pages = 0;
+	}
+	Book(string aTitle, string aAuthor, int aPages){
+		title = aTitle;
+		author = aAuthor;
+		pages = aPages;
+}
+};
+Book book1("Harry Potter", "JK Rowling", 500);
+Book book3;
+```
+
+
 
 **Progress**
 ------------
@@ -271,5 +421,7 @@ Here are some other projects that are similar to this one.
 [Javascript Review](https://github.com/Kttra/JavascriptCode) - An overview of javascript
 
 [C# Review](https://github.com/Kttra/CSharpCode) - An overview of C#
+
+[C Arrays](https://github.com/Kttra/arraysC) - An overview of arrays in C
 
 [Data Structures](https://github.com/Kttra/DataStructuresCSharp) - Repo where I cover some data structures.

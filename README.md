@@ -56,6 +56,68 @@ int main() {
 
 This program will ask the user to enter their name, then print "Hello, " followed by their name.
 
+**Datatypes**
+--------------
+In C++,there are three types of data types: primitive data types, abstract data types, and derived data types. Primitive data types are built-in or predefined data types and can be used directly by the user to declare variables. Some examples of primitive data types in C++ are integer, character, boolean, double floating-point, or void
+
+Primitive data types available in C++ are:
+
+•  int (integer)
+```c++
+int age = 50;
+```
+•  char (character)
+```c++
+char grade = 'A';
+```
+•  string (Instead of one character, it is a string of characters)
+```c++
+string phrase = "Hello World";
+```
+•  double (double floating-point)
+```c++
+double gpa = 2.3;
+```
+•  bool (boolean)
+```c++
+bool isMale = true;
+```
+•  void (valueless)
+
+**Datatypes**
+--------------
+In C++, a string is a type of object representing a collection (or sequence) of different characters. Strings in C++ are a part of the standard string class (std::string).
+
+```c++
+string phrase = “hello world”;
+phrase.length(); //11
+phrase[0]; //h
+phrase[0] = ‘a’; //aello world
+phrase.find(“world”, 0); //look if hello exists starting at index 0, outputs 6
+phrase.substr(6, 5); //parameters: starting index, length | returns "world" in this case
+```
+
+**Numbers \[#include \<cmath\>\]**
+-----
+The numerics library "cmath" contains mathematical operations.
+
+```c++
+10 % 3; \\ 10 mod 3, gives remainder 1
+int wnum = 5;
+double dnum = 5.5;
+wnum++; \\6
+wnum--; \\5
+wnum += 20; \\25
+pow(2,5); \\2^5 = 32
+sqrt(36); \\6
+round(4.1); \\4
+round(4.6); \\5
+ceil(4.1); \\5
+floor(4.8); \\4
+fmax(3,10); \\returns the maximum, 10 in this case
+fmin(3,10) \\returns the minimum, 3 in this case
+```
+
 **Links to Other Helpful Projects**
 ------------
 Here are some other projects that are similar to this one.
